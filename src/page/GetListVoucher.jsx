@@ -1,5 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";  
+import { Link } from "react-router-dom";
+
 
 
 const GetListVoucher = () => {
@@ -13,7 +15,9 @@ const GetListVoucher = () => {
     try {
       const res = await fetch(
         "http://localhost:3001/api/vouchers/getVoucher"
-        , )
+        ,{
+          method:"POST",
+        })
       
       if (!res.ok) {
         throw new Error("Network response was not ok");
@@ -51,6 +55,10 @@ const GetListVoucher = () => {
       alert("Đã xảy ra lỗi khi xóa voucher");
     }
   };
+
+  const handleUpdateVoucher = async (_id) => {
+    return 
+  }
 
   if (isLoading)
     return (
@@ -101,12 +109,19 @@ const GetListVoucher = () => {
                 <td className="border px-4 py-2">{voucher.VoucherQuantity}</td>
                 <td className="border px-4 py-2">{voucher.VoucherEndDate}</td>
                 <td className="border px-4 py-2">{voucher.VoucherStatus}</td>
-                <td className="border px-4 py-2 flex justify-center">
+                <td className="border px-4 py-2 flex justify-center space-x-4">
                   <button
                     className="bg-red-500 px-4 py-2 w-fit h-fit hover:bg-red-700 text-white font-bold rounded"
                     onClick={() => handleDeleteVoucher(voucher._id)}
                   >
                     Xóa
+                  </button>
+                  <button
+                    className="bg-blue-500 px-4 py-2 w-fit h-fit hover:bg-blue-700 text-white font-bold rounded"
+                    onClick={() => voucher._id}
+                  > <Link to={`/UpdateVoucher/${voucher._id}`}>
+                    Cập nhật
+                  </Link>
                   </button>
                 </td>
               </tr>

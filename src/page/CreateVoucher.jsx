@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const VoucherForm = () => {
+const VoucherForm = () => { 
     const [voucher, setVoucher] = useState({
       VoucherID: '',
       VoucherName: '',
@@ -13,9 +13,9 @@ const VoucherForm = () => {
       VoucherMinValue: 0,
       VoucherMaxValue: 0,
       VoucherQuantity: 0,
-      VoucherStatus: '',
+      VoucherStatus: 'Available',
       AmountUsed: 0,
-      // CreatedBy: '', // Assume a valid ObjectId string for demonstration
+      CreatedBy: 'Voucher Supplier', // Assume a valid ObjectId string for demonstration
     });
   
     const handleChange = (e) => {
@@ -57,10 +57,6 @@ const VoucherForm = () => {
       } catch (error) {
         console.error("Failed to create voucher!", error);
       }
-    }
-
-    const Validator = () => {
-      
     }
 
     return (
@@ -198,20 +194,7 @@ const VoucherForm = () => {
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 required
               />
-            </div>
-            <div className="flex">
-              <label htmlFor="VoucherStatus" className="block text-sm font-medium text-gray-700">Trạng Thái Voucher:</label>
-              <input
-                type="text"
-                id="VoucherStatus"
-                name="VoucherStatus"
-                value={voucher.VoucherStatus}
-                onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                required
-              />
-            </div>
-            
+            </div>      
             <button type="submit"
              className="w-full bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
              onClick={handleSubmit}>Tạo Voucher</button>

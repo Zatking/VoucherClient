@@ -4,9 +4,14 @@ import VoucherList from '../page/GetListVoucher.jsx'
 import AdminPage from '../page/Admin.jsx'
 import CreateVoucher from '../page/CreateVoucher.jsx'
 import ErrorPage from "./ErrorPage.jsx";
+import UpdateVoucher from "../page/UpdateVoucher.jsx";
+
+
+
 
 const router = createBrowserRouter([
-    {
+ 
+  {
       path: "/",
       element: <App />,
       errorElement: <ErrorPage />,
@@ -22,7 +27,12 @@ const router = createBrowserRouter([
         {
           path: "VoucherList",
           element: <VoucherList />,
+        },
+        {
+          path:`UpdateVoucher/:id`,
+          element: <UpdateVoucher/>,
         }
+      
       ],
     },
   ]);
