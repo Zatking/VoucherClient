@@ -1,7 +1,7 @@
  import React from 'react'
  
- export default function GetListVoucherPartner() {
-  
+const  GetListVoucherPartner = () => {
+
    return (
      <div>
        
@@ -9,3 +9,4 @@
    )
  }
  
+ export default GetListVoucherPartner;

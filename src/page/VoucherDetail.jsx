@@ -1,6 +1,4 @@
-import { set } from 'mongoose';
 import React from 'react'
-import { use } from '../../../server/routes/voucher.route';
 import { useNavigate } from 'react-router-dom';
 import { useParams,Link } from 'react-router-dom';
 const VoucherDetail = () => {
@@ -37,3 +35,5 @@ const VoucherDetail = () => {
     </>
   )
 }
+
+export default VoucherDetail;

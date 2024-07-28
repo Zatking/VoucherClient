@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function CreateVoucherPartner() {
+const  CreateVoucherPartner = () => {
   const [VoucherPartner, setVoucherPartner] = useState({
     VoucherID: '',
     VoucherName: '',
@@ -24,3 +24,5 @@ export default function CreateVoucherPartner() {
     </div>
   )
 }
+
+export default CreateVoucherPartner

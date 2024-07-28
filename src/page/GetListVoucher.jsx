@@ -15,9 +15,7 @@ const GetListVoucher = () => {
     try {
       const res = await fetch(
         "http://localhost:3001/api/vouchers/getVoucher"
-        ,{
-          method:"POST",
-        })
+        ,)
       
       if (!res.ok) {
         throw new Error("Network response was not ok");
@@ -56,10 +54,7 @@ const GetListVoucher = () => {
     }
   };
 
-  const handleUpdateVoucher = async (_id) => {
-    return 
-  }
-
+  
   if (isLoading)
     return (
       <div className="text-center text-4xl translate-y-1/2 h-full font-extrabold">

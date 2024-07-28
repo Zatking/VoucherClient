@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 
 const VoucherForm = () => { 
-    const [voucher, setVoucher] = useState({
+   
+  const [voucher, setVoucher] = useState({
       VoucherID: '',
       VoucherName: '',
       VoucherType: '',
@@ -15,7 +16,7 @@ const VoucherForm = () => {
       VoucherQuantity: 0,
       VoucherStatus: 'Available',
       AmountUsed: 0,
-      CreatedBy: 'Voucher Supplier', // Assume a valid ObjectId string for demonstration
+      VoucherCreatedBy: 'Voucher Supplier', // Assume a valid ObjectId string for demonstration
     });
   
     const handleChange = (e) => {
@@ -36,19 +37,19 @@ const VoucherForm = () => {
         if (response.ok) {
           alert("Voucher created successfully!");
           setVoucher({
-            // VoucherID: '',
-            // VoucherName: '',
-            // VoucherType: '',
-            // VoucherImage: '',
-            // VoucherDescription: '',
-            // VoucherStartDate: '',
-            // VoucherEndDate: '',
-            // VoucherDiscount: 0,
-            // VoucherMinValue: 0,
-            // VoucherMaxValue: 0,
-            // VoucherQuantity: 0,
-            // VoucherStatus: '',
-            // AmountUsed: 0,
+            VoucherID: '',
+            VoucherName: '',
+            VoucherType: '',
+            VoucherImage: '',
+            VoucherDescription: '',
+            VoucherStartDate: '',
+            VoucherEndDate: '',
+            VoucherDiscount: 0,
+            VoucherMinValue: 0,
+            VoucherMaxValue: 0,
+            VoucherQuantity: 0,
+            VoucherStatus: '',
+            AmountUsed: 0,
             // CreatedBy: '', // Assume a valid ObjectId string for demonstration
           });
         } else {
