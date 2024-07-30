@@ -69,63 +69,72 @@ const GetListVoucher = () => {
       </div>
     );
 
-  return (
-    <div className="w-auto h-full bg-white">
-      <div className="flex w-auto">
-        <h1 className="text-black w-1/2 p-4 text-4xl">Danh sách Voucher</h1>
-        <div className="flex w-1/2 mr-2 justify-end">
-          <button className="bg-blue-500 px-4 py-2 mt-4 w-fit h-fit hover:bg-blue-700 text-white font-bold rounded">
-            <a className="no-underline text-white" href="/CreateVoucher">
-              Thêm Voucher
-            </a>
-          </button>
-        </div>
-      </div>
-      <div className="p-2">
-        <table className="w-full">
-          <thead>
-            <tr className="bg-green-400">
-              <th className="border px-4 py-2">Mã Voucher</th>
-              <th className="border px-4 py-2">Tên Voucher</th>
-              <th className="border px-4 py-2">Số lượng</th>
-              <th className="border px-4 py-2">Ngày hết hạn</th>
-              <th className="border px-4 py-2">Trạng thái</th>
-              <th className="border px-4 py-2">Hành động</th>
-            </tr>
-          </thead>
-          <tbody>
-            
-            {console.log(`vouchercheck:${voucher}`)}
-            {voucher.map((voucher) => (
-              <tr key={voucher._id} className="text-black">
-              
-                <td className="border px-4 py-2">{voucher.VoucherID}</td>
-                <td className="border px-4 py-2">{voucher.VoucherName}</td>
-                <td className="border px-4 py-2">{voucher.VoucherQuantity}</td>
-                <td className="border px-4 py-2">{voucher.VoucherEndDate}</td>
-                <td className="border px-4 py-2">{voucher.VoucherStatus}</td>
-                <td className="border px-4 py-2 flex justify-center space-x-4">
-                  <button
-                    className="bg-red-500 px-4 py-2 w-fit h-fit hover:bg-red-700 text-white font-bold rounded"
-                    onClick={() => handleDeleteVoucher(voucher._id)}
-                  >
-                    Xóa
-                  </button>
-                  <button
-                    className="bg-blue-500 px-4 py-2 w-fit h-fit hover:bg-blue-700 text-white font-bold rounded"
-                    onClick={() => voucher._id}
-                  > <Link to={`/UpdateVoucher/${voucher._id}`}>
-                    Cập nhật
-                  </Link>
-                  </button>
+    return (
+      <div className="w-auto h-full bg-gradient-to-b from-green-400 p-6">
+        <h1 className="text-4xl font-bold mb-4 pt-6 text-center text-white border-t-8 border-white rounded-3xl">
+          Danh sách Voucher
+        </h1>
+        <div className="p-2 bg-white rounded-lg m-12">
+          <table className="w-full">
+            <thead>
+              <tr className="bg-green-400 text-white">
+                <th className="border px-4 py-2">Mã Voucher</th>
+                <th className="border px-4 py-2">Tên Voucher</th>
+                <th className="border px-4 py-2">Số lượng</th>
+                <th className="border px-4 py-2">Ngày hết hạn</th>
+                <th className="border px-4 py-2">Trạng thái</th>
+                <th className="border px-4 py-2">Hành động</th>
+              </tr>
+            </thead>
+            <tbody>
+              {voucher.map((voucher) => (
+                <tr key={voucher._id} className="text-green-600">
+                  <td className="border px-4 py-2">{voucher.VoucherID}</td>
+                  <td className="border px-4 py-2">{voucher.VoucherName}</td>
+                  <td className="border px-4 py-2">{voucher.VoucherQuantity}</td>
+                  <td className="border px-4 py-2">{voucher.VoucherEndDate}</td>
+                  <td className="border px-4 py-2">{voucher.VoucherStatus}</td>
+                  <td className="border px-4 py-2 flex justify-center space-x-4 bg-green-400">
+                    <button
+                      className="bg-white text-red-400 shadow-inner shadow-red-400 px-4 py-2 w-fit h-fit hover:bg-red-400 hover:text-white font-bold rounded"
+                      onClick={() => handleDeleteVoucher(voucher._id)}
+                    >
+                      Xóa
+                    </button>
+                    <button
+                      className="bg-white text-green-400 shadow-inner px-4 py-2 w-fit h-fit hover:bg-green-400 hover:text-white hover:shadow-white font-bold rounded"
+                      onClick={() => voucher._id}
+                    >
+                      {" "}
+                      <Link to={`/UpdateVoucher/${voucher._id}`}>Cập nhật</Link>
+                    </button>
+                    <button
+                      className="bg-white text-blue-400 shadow-inner px-4 py-2 w-fit h-fit hover:bg-blue-400 hover:text-white hover:shadow-white font-bold rounded"
+                      onClick={() => voucher._id}
+                    >
+                      {" "}
+                      <Link to={`/VoucherDetail/${voucher._id}`}>Xem chi tiết</Link>
+                    </button>
+                  </td>
+                </tr>
+              ))}
+              <tr className="">
+                <td className="" colSpan={6}>
+                  
                 </td>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+          <div className="grid grid-cols-12">
+          <button className="col-span-8 col-start-4   bg-green-400 border-4 border-green-400 px-4 py-2 my-4 w-2/3 h-fit text-white hover:bg-white hover:text-green-400 font-bold rounded-full">
+                    <a className="no-underline" href="/CreateVoucher">
+                      Thêm Voucher
+                    </a>
+                  </button>
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    );
 };
 
 export default GetListVoucher;
