@@ -19,9 +19,9 @@ const VoucherForm = () => {
     if (!voucherPartner.VoucherMaxValue) alert(errors.VoucherMaxValue = "Giá Trị Tối Đa là bắt buộc");
     if (!voucherPartner.VoucherQuantity) alert(errors.VoucherQuantity = "Số Lượng Voucher là bắt buộc");
     if (!voucherPartner.VoucherImage) alert(errors.VoucherImage = "Ảnh Voucher là bắt buộc");
-    if (voucherPartner.VoucherDiscount < 0 || voucherPartner.VoucherDiscount>100) alert(errors.VoucherDiscount = " Giảm Giá phải từ 0 đến 100");
-    if (voucherPartner.VoucherMinValue < 0 ||voucherPartner.VoucherMinValue > voucher.VoucherMaxValue ) alert(errors.VoucherMinValue = "Giá Trị Tối Thiểu phải lớn hơn hoặc bằng 0");
-    if (voucherPartner.VoucherMaxValue < voucherPartner.VoucherMinValue || voucher.VoucherMaxValue > 50) alert(errors.VoucherMaxValue = "Giá Trị Tối Đa phải lớn hơn Giá Trị Tối Thiểu và nhỏ hơn 50"); 
+    if (voucherPartner.VoucherDiscount < 0 || voucherPartner.VoucherDiscount>50) alert(errors.VoucherDiscount = " Giảm Giá phải từ 0 đến 50");
+    if (voucherPartner.VoucherMinValue < 0 ||voucherPartner.VoucherMinValue > voucherPartner.VoucherMaxValue ) alert(errors.VoucherMinValue = "Giá Trị Tối Thiểu phải lớn hơn hoặc bằng 0");
+    if (voucherPartner.VoucherMaxValue < voucherPartner.VoucherMinValue ) alert(errors.VoucherMaxValue = "Giá Trị Tối Đa phải lớn hơn Giá Trị Tối Thiểu và nhỏ hơn 50"); 
     if (voucherPartner.VoucherQuantity <= 0 || voucherPartner.VoucherQuantity >999) alert(errors.VoucherQuantity = "Số Lượng Voucher phải lớn hơn 0 và nhỏ hơn 1000");
     if(voucherPartner.VoucherStartDate < Date.now -1) alert(errors.VoucherStartDate = "Ngày Bắt Đầu phải lớn hơn hoặc bằng ngày hiện tại");
     if(voucherPartner.VoucherEndDate < voucherPartner.VoucherStartDate) alert(errors.VoucherEndDate = "Ngày Kết Thúc phải lớn hơn hoặc bằng Ngày Bắt Đầu");
@@ -53,6 +53,11 @@ const VoucherForm = () => {
   
     const handleSubmit = async (e) => {
       e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
       try {
         const response = await fetch("https://voucher-server-alpha.vercel.app/api/vouchers/create", {
           method: "POST",
@@ -77,7 +82,7 @@ const VoucherForm = () => {
             VoucherQuantity: 0,
             VoucherStatus: '',
             AmountUsed: 0,
-            VoucherCreatedBy: 'Voucher Supplier', // Assume a valid ObjectId string for demonstration
+            VoucherCreatedBy: query, // Assume a valid ObjectId string for demonstration
          });
         } else {
           alert("Failed to create voucher!");

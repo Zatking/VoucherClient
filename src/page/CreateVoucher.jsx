@@ -15,7 +15,7 @@ const VoucherForm = () => {
     VoucherQuantity: 0,
     VoucherStatus: "Available",
     AmountUsed: 0,
-    VoucherCreatedBy: "voucher", // Assume a valid ObjectId string for demonstration
+    VoucherCreatedBy: "1000000004", // Assume a valid ObjectId string for demonstration
   });
 
   const handleChange = (e) => {
@@ -23,31 +23,31 @@ const VoucherForm = () => {
     setVoucher({ ...voucher, [name]: value });
   };
 
-  // const validate = () => {
-  //   const errors = {};
-  //   if (!voucher.VoucherID) alert(errors.VoucherID= "Mã Voucher là bắt buộc");
-  //   if (!voucher.VoucherName) alert(errors.VoucherName = "Tên Voucher là bắt buộc");
-  //   if (!voucher.VoucherType) alert(errors.VoucherType = "Loại Voucher là bắt buộc");
-  //   if (!voucher.VoucherDescription) alert(errors.VoucherDescription = "Mô Tả Voucher là bắt buộc");
-  //   if (!voucher.VoucherStartDate) alert(errors.VoucherStartDate = "Ngày Bắt Đầu là bắt buộc");
-  //   if (!voucher.VoucherEndDate) alert(errors.VoucherEndDate = "Ngày Kết Thúc là bắt buộc");
-  //   if (!voucher.VoucherDiscount) alert(errors.VoucherDiscount = "Giảm Giá là bắt buộc");
-  //   if (!voucher.VoucherMinValue) alert(errors.VoucherMinValue = "Giá Trị Tối Thiểu là bắt buộc");
-  //   if (!voucher.VoucherMaxValue) alert(errors.VoucherMaxValue = "Giá Trị Tối Đa là bắt buộc");
-  //   if (!voucher.VoucherQuantity) alert(errors.VoucherQuantity = "Số Lượng Voucher là bắt buộc");
-  //   if (!voucher.VoucherImage) alert(errors.VoucherImage = "Ảnh Voucher là bắt buộc");
-  //   if (voucher.VoucherDiscount < 0 || voucher.VoucherDiscount>100) alert(errors.VoucherDiscount = " Giảm Giá phải từ 0 đến 100");
-  //   if (voucher.VoucherMinValue < 0 ||voucher.VoucherMinValue > voucher.VoucherMaxValue ) alert(errors.VoucherMinValue = "Giá Trị Tối Thiểu phải lớn hơn hoặc bằng 0");
-  //   if (voucher.VoucherMaxValue < voucher.VoucherMinValue || voucher.VoucherMaxValue > 50) alert(errors.VoucherMaxValue = "Giá Trị Tối Đa phải lớn hơn Giá Trị Tối Thiểu và nhỏ hơn 50"); 
-  //   if (voucher.VoucherQuantity <= 0 || voucher.VoucherQuantity >999) alert(errors.VoucherQuantity = "Số Lượng Voucher phải lớn hơn 0 và nhỏ hơn 1000");
-  //   if(voucher.VoucherStartDate < Date.now -1) alert(errors.VoucherStartDate = "Ngày Bắt Đầu phải lớn hơn hoặc bằng ngày hiện tại");
-  //   if(voucher.VoucherEndDate < voucher.VoucherStartDate) alert(errors.VoucherEndDate = "Ngày Kết Thúc phải lớn hơn hoặc bằng Ngày Bắt Đầu");
-  //   return errors;
-  // };
+  const validate = () => {
+    const errors = {};
+    if (!voucher.VoucherID) alert(errors.VoucherID= "Mã Voucher là bắt buộc");
+    if (!voucher.VoucherName) alert(errors.VoucherName = "Tên Voucher là bắt buộc");
+    if (!voucher.VoucherType) alert(errors.VoucherType = "Loại Voucher là bắt buộc");
+    if (!voucher.VoucherDescription) alert(errors.VoucherDescription = "Mô Tả Voucher là bắt buộc");
+    if (!voucher.VoucherStartDate) alert(errors.VoucherStartDate = "Ngày Bắt Đầu là bắt buộc");
+    if (!voucher.VoucherEndDate) alert(errors.VoucherEndDate = "Ngày Kết Thúc là bắt buộc");
+    if (!voucher.VoucherDiscount) alert(errors.VoucherDiscount = "Giảm Giá là bắt buộc");
+    if (!voucher.VoucherMinValue) alert(errors.VoucherMinValue = "Giá Trị Tối Thiểu là bắt buộc");
+    if (!voucher.VoucherMaxValue) alert(errors.VoucherMaxValue = "Giá Trị Tối Đa là bắt buộc");
+    if (!voucher.VoucherQuantity) alert(errors.VoucherQuantity = "Số Lượng Voucher là bắt buộc");
+    if (!voucher.VoucherImage) alert(errors.VoucherImage = "Ảnh Voucher là bắt buộc");
+    if (voucher.VoucherDiscount < 0 || voucher.VoucherDiscount>50) alert(errors.VoucherDiscount = " Giảm Giá phải từ 0 đến 100");
+    if (voucher.VoucherMinValue < 0 ||voucher.VoucherMinValue > voucher.VoucherMaxValue ) alert(errors.VoucherMinValue = "Giá Trị Tối Thiểu phải lớn hơn hoặc bằng 0");
+    if (voucher.VoucherMaxValue < voucher.VoucherMinValue ) alert(errors.VoucherMaxValue = "Giá Trị Tối Đa phải lớn hơn Giá Trị Tối Thiểu và nhỏ hơn 50"); 
+    if (voucher.VoucherQuantity <= 0 || voucher.VoucherQuantity >999) alert(errors.VoucherQuantity = "Số Lượng Voucher phải lớn hơn 0 và nhỏ hơn 1000");
+    if(voucher.VoucherStartDate < Date.now -1) alert(errors.VoucherStartDate = "Ngày Bắt Đầu phải lớn hơn hoặc bằng ngày hiện tại");
+    if(voucher.VoucherEndDate < voucher.VoucherStartDate) alert(errors.VoucherEndDate = "Ngày Kết Thúc phải lớn hơn hoặc bằng Ngày Bắt Đầu");
+    return errors;
+  };
 
   const handleSubmit = async (e) => {
-    // e.preventDefault();
-    // const validationErrors = validate();
+    e.preventDefault();
+    const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
@@ -288,6 +288,7 @@ const VoucherForm = () => {
         >
           Tạo Voucher
         </button>
+        
       </div>
     </form>
   );

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import GetListVoucherPartner from './GetListVoucherPartner';
 
-const VoucherDetail = () => {
+const VoucherDetailPartner = () => {
   const { id } = useParams();
   const [voucher, setVoucher] = useState();
   const [isLoading, setLoading] = useState(true);
@@ -126,17 +126,19 @@ const VoucherDetail = () => {
         <span className="font-bold text-pink-600">Giá trị tối thiểu:</span>{" "}
         {voucher.voucher.VoucherMinValue}đ
       </p>
+      <button>
+      
+    </button>
     </div>
-
     <button
                       className="bg-white text-pink-400 shadow-inner px-4 py-2 w-fit h-fit hover:bg-pink-600 hover:text-white hover:shadow-white font-bold rounded"
                       onClick={() => voucher._id}
                     >
                       {" "}
-                      <Link to={`/`}>Back</Link>
+                      <Link to={`/VoucherPartnerList/?service=${voucher.voucher.VoucherCreatedBy}`}>Back</Link>
                     </button>
   </div>
   );
 };
 
-export default VoucherDetail;
+export default VoucherDetailPartner;

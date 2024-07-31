@@ -117,7 +117,7 @@ const  GetListVoucherPartner = () => {
                   onClick={() => voucher._id}
                 >
                   {" "}
-                  <Link to={`/VoucherDetail/${voucher._id}`}>Xem chi tiết</Link>
+                  <Link to={`/VoucherDetailPartner/${voucher._id}`}>Xem chi tiết</Link>
                 </button>
               </td>
             </tr>
@@ -131,9 +131,10 @@ const  GetListVoucherPartner = () => {
       </table>
       <div className="grid grid-cols-12">
       <button className="col-span-8 col-start-4   bg-green-400 border-4 border-green-400 px-4 py-2 my-4 w-2/3 h-fit text-white hover:bg-white hover:text-green-400 font-bold rounded-full">
-                <a className="no-underline" href={`/CreateVoucherPartner${query}`}>
+                {/* <a className="no-underline" href={`/CreateVoucherPartner/service=${query}`}>
                   Thêm Voucher
-                </a>
+                </a> */}
+                <Link to={`/CreateVoucherPartner/?service=${query}`}>Xem chi tiết</Link>
               </button>
       </div>
     </div>

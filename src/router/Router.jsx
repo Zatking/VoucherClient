@@ -7,6 +7,7 @@ import UpdateVoucher from "../page/UpdateVoucher.jsx";
 import CreateVoucherPartner from "../page/CreateVoucherPartner.jsx";
 import GetListVoucherPartner from "../page/GetListVoucherPartner.jsx";
 import VoucherDetail from "../page/VoucherDetail.jsx";
+import VoucherDetailPartner from "../page/VoucherDetailPartner.jsx";
 import Dashboard from "../page/Dashboard.jsx";
 
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
         {
           path:"VoucherDetail/:id",
           element: <VoucherDetail/>,
+        },
+        {
+          path:"VoucherDetailPartner/:id",
+          element: <VoucherDetailPartner/>,
         },
         {
           path: "Dashboard",
