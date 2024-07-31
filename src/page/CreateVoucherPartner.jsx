@@ -6,8 +6,30 @@ const VoucherForm = () => {
   const searchParams = new URLSearchParams(location.search);
   const query = searchParams.get("service").toUpperCase(); // Assume the query is a valid string for demonstration
   let r = (Math.random() + 1).toString(36).substring(7).toUpperCase();
+  const validate = () => {
+    const errors = {};
+    if (!voucherPartner.VoucherID) alert(errors.VoucherID= "Mã Voucher là bắt buộc");
+    if (!voucherPartner.VoucherName) alert(errors.VoucherName = "Tên Voucher là bắt buộc");
+    if (!voucherPartner.VoucherType) alert(errors.VoucherType = "Loại Voucher là bắt buộc");
+    if (!voucherPartner.VoucherDescription) alert(errors.VoucherDescription = "Mô Tả Voucher là bắt buộc");
+    if (!voucherPartner.VoucherStartDate) alert(errors.VoucherStartDate = "Ngày Bắt Đầu là bắt buộc");
+    if (!voucherPartner.VoucherEndDate) alert(errors.VoucherEndDate = "Ngày Kết Thúc là bắt buộc");
+    if (!voucherPartner.VoucherDiscount) alert(errors.VoucherDiscount = "Giảm Giá là bắt buộc");
+    if (!voucherPartner.VoucherMinValue) alert(errors.VoucherMinValue = "Giá Trị Tối Thiểu là bắt buộc");
+    if (!voucherPartner.VoucherMaxValue) alert(errors.VoucherMaxValue = "Giá Trị Tối Đa là bắt buộc");
+    if (!voucherPartner.VoucherQuantity) alert(errors.VoucherQuantity = "Số Lượng Voucher là bắt buộc");
+    if (!voucherPartner.VoucherImage) alert(errors.VoucherImage = "Ảnh Voucher là bắt buộc");
+    if (voucherPartner.VoucherDiscount < 0 || voucherPartner.VoucherDiscount>100) alert(errors.VoucherDiscount = " Giảm Giá phải từ 0 đến 100");
+    if (voucherPartner.VoucherMinValue < 0 ||voucherPartner.VoucherMinValue > voucher.VoucherMaxValue ) alert(errors.VoucherMinValue = "Giá Trị Tối Thiểu phải lớn hơn hoặc bằng 0");
+    if (voucherPartner.VoucherMaxValue < voucherPartner.VoucherMinValue || voucher.VoucherMaxValue > 50) alert(errors.VoucherMaxValue = "Giá Trị Tối Đa phải lớn hơn Giá Trị Tối Thiểu và nhỏ hơn 50"); 
+    if (voucherPartner.VoucherQuantity <= 0 || voucherPartner.VoucherQuantity >999) alert(errors.VoucherQuantity = "Số Lượng Voucher phải lớn hơn 0 và nhỏ hơn 1000");
+    if(voucherPartner.VoucherStartDate < Date.now -1) alert(errors.VoucherStartDate = "Ngày Bắt Đầu phải lớn hơn hoặc bằng ngày hiện tại");
+    if(voucherPartner.VoucherEndDate < voucherPartner.VoucherStartDate) alert(errors.VoucherEndDate = "Ngày Kết Thúc phải lớn hơn hoặc bằng Ngày Bắt Đầu");
+    return errors;
+  };
 
   const [voucherPartner, setVoucherPartner] = useState({
+
       VoucherID: `${r}`,
       VoucherName: '',
       VoucherType: '',
@@ -28,36 +50,8 @@ const VoucherForm = () => {
       const { name, value } = e.target;
       setVoucherPartner({ ...voucherPartner, [name]: value });
     };
-
-    const validate = () => {
-      const errors = {};
-      if (!voucher.VoucherID) alert(errors.VoucherID= "Mã Voucher là bắt buộc");
-      if (!voucher.VoucherName) alert(errors.VoucherName = "Tên Voucher là bắt buộc");
-      if (!voucher.VoucherType) alert(errors.VoucherType = "Loại Voucher là bắt buộc");
-      if (!voucher.VoucherDescription) alert(errors.VoucherDescription = "Mô Tả Voucher là bắt buộc");
-      if (!voucher.VoucherStartDate) alert(errors.VoucherStartDate = "Ngày Bắt Đầu là bắt buộc");
-      if (!voucher.VoucherEndDate) alert(errors.VoucherEndDate = "Ngày Kết Thúc là bắt buộc");
-      if (!voucher.VoucherDiscount) alert(errors.VoucherDiscount = "Giảm Giá là bắt buộc");
-      if (!voucher.VoucherMinValue) alert(errors.VoucherMinValue = "Giá Trị Tối Thiểu là bắt buộc");
-      if (!voucher.VoucherMaxValue) alert(errors.VoucherMaxValue = "Giá Trị Tối Đa là bắt buộc");
-      if (!voucher.VoucherQuantity) alert(errors.VoucherQuantity = "Số Lượng Voucher là bắt buộc");
-      if (!voucher.VoucherImage) alert(errors.VoucherImage = "Ảnh Voucher là bắt buộc");
-      if (voucher.VoucherDiscount < 0 || voucher.VoucherDiscount>100) alert(errors.VoucherDiscount = " Giảm Giá phải từ 0 đến 100");
-      if (voucher.VoucherMinValue < 0 ||voucher.VoucherMinValue > voucher.VoucherMaxValue ) alert(errors.VoucherMinValue = "Giá Trị Tối Thiểu phải lớn hơn hoặc bằng 0");
-      if (voucher.VoucherMaxValue < voucher.VoucherMinValue || voucher.VoucherMaxValue > 50) alert(errors.VoucherMaxValue = "Giá Trị Tối Đa phải lớn hơn Giá Trị Tối Thiểu và nhỏ hơn 50"); 
-      if (voucher.VoucherQuantity <= 0 || voucher.VoucherQuantity >999) alert(errors.VoucherQuantity = "Số Lượng Voucher phải lớn hơn 0 và nhỏ hơn 1000");
-      if(voucher.VoucherStartDate < Date.now -1) alert(errors.VoucherStartDate = "Ngày Bắt Đầu phải lớn hơn hoặc bằng ngày hiện tại");
-      if(voucher.VoucherEndDate < voucher.VoucherStartDate) alert(errors.VoucherEndDate = "Ngày Kết Thúc phải lớn hơn hoặc bằng Ngày Bắt Đầu");
-      return errors;
-    };
-    
   
     const handleSubmit = async (e) => {
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
       e.preventDefault();
       try {
         const response = await fetch("http://localhost:3001/api/vouchers/create", {
@@ -69,7 +63,7 @@ const VoucherForm = () => {
         });
         if (response.ok) {
           alert("Voucher created successfully!");
-          setVoucher({
+          setVoucherPartner({
             VoucherID: `${r}`,
             VoucherName: '',
             VoucherType: '',
@@ -83,8 +77,8 @@ const VoucherForm = () => {
             VoucherQuantity: 0,
             VoucherStatus: '',
             AmountUsed: 0,
-            VoucherCreatedBy: query, // Assume a valid ObjectId string for demonstration
-q          });
+            VoucherCreatedBy: 'Voucher Supplier', // Assume a valid ObjectId string for demonstration
+         });
         } else {
           alert("Failed to create voucher!");
         }
@@ -98,7 +92,7 @@ q          });
       return (
         <form className="bg-gradient-to-b from-green-400 p-6">
           <h1 className="text-4xl font-bold mb-4 pt-6 text-center text-white border-t-8 border-white rounded-3xl">
-            Tạo Voucher
+            Tạo Voucher 
           </h1>
           <div className="grid grid-cols-12 rounded-xl bg-white place-items-end items-center gap-4 p-12 m-12 drop-shadow-xl">
             <p className="col-span-2 font-bold text-left text-green-400 text-lg place-self-start">
