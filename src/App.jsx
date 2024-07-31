@@ -1,8 +1,8 @@
 import './App.css'
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Dashboard from './page/Dashboard.jsx'
 import Navbar from './components/Navbar.jsx'
+import Footer from './components/Footer.jsx'
 const App = () => {
   
 
@@ -11,6 +11,7 @@ const App = () => {
       <div>
         <Navbar />
         <Outlet />
+        <Footer />
       </div>
     </div>
   )

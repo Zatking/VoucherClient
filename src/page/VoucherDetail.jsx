@@ -69,53 +69,62 @@ const VoucherDetail = () => {
   }
 
   return (
-    <div className="modal-box">
-              <h3 className="font-bold text-4xl text-pink-600 my-3">
-                {voucher.voucher.VoucherName}
-              </h3>
+    <div className="grid grid-cols-12 p-20 bg-gradient-to-br from-pink-200">
+    <h3 className="col-span-12 font-bold text-4xl text-pink-600 mb-12">
+      {voucher.voucher.VoucherName}
+    </h3>
+    <div className="col-span-4 place-items-center ">
+      <img
+        src={voucher.voucher.VoucherImage}
+        alt=""
+        className="img-fluid rounded-xl"
+      />
+    </div>
+    <div className="grid grid-cols-2 col-span-8 text-left place-items-start w-full px-10 text-2xl">
+      <p>
+        <span className="font-bold text-pink-600">Mã:</span>{" "}
+        {voucher.voucher.VoucherID}
+      </p>
+      <p>
+        <span className="font-bold text-pink-600">Mức giảm:</span>{" "}
+        {voucher.voucher.VoucherDiscount}%
+      </p>
+      <p>
+        <span className="font-bold text-pink-600">Ngày bắt đầu:</span>{" "}
+        {formatDate(voucher.voucher.VoucherStartDate)}
+      </p>
+      <p>
+        <span className="font-bold text-pink-600">Ngày kết thúc:</span>{" "}
+        {formatDate(voucher.voucher.VoucherEndDate)}
+      </p>
+      <p>
+        <span className="font-bold text-pink-600">
+          Được tạo bởi
+        </span>{" "}
+        {voucher.voucher.VoucherCreatedBy}
+      </p>
+      <p>
+        <span className="font-bold text-pink-600">Số lượng:</span>{" "}
+        {voucher.voucher.VoucherDescription}
+      </p>
+      <p>
+        <span className="font-bold text-pink-600">Mô tả:</span>{" "}
+        {voucher.voucher.VoucherQuantity}
+      </p>
+      <p>
+        <span className="font-bold text-pink-600">Trạng thái:</span>{" "}
+        {voucher.voucher.VoucherStatus}
+      </p>
+      <p>
+        <span className="font-bold text-pink-600">Giá trị tối đa:</span>{" "}
+        {voucher.voucher.VoucherMaxValue}đ
+      </p> <p>
+        <span className="font-bold text-pink-600">Giá trị tối thiểu:</span>{" "}
+        {voucher.voucher.VoucherMinValue}đ
+      </p>
 
-              <div className="grid grid-cols-12 place-items-center ">
-                <div className="col-span-4">
-                  <img
-                    src={voucher.voucher.VoucherImage}
-                    alt=""
-                    className="img-fluid rounded"
-                  />
-                </div>
-                <div className="grid col-span-8 text-left place-items-start w-full px-10">
-                  <p>
-                    <span className="font-bold text-pink-600">Mã:</span>{" "}
-                    {voucher.voucher.VoucherID}
-                  </p>
-                  <p>
-                    <span className="font-bold text-pink-600">
-                      Hạn sử dụng:
-                    </span>{" "}
-                    {formatDate(voucher.voucher.VoucherEndDate)}
-                  </p>
-                  <p>
-                    <span className="font-bold text-pink-600">Mức giảm:</span>{" "}
-                    {voucher.voucher.VoucherDiscount}%
-                  </p>
-                  <p>
-                    <span className="font-bold text-pink-600">
-                      Giảm tối đa:
-                    </span>{" "}
-                    {voucher.voucher.VoucherMaxValue}đ
-                  </p>
-                  <p>
-                    <span className="font-bold text-pink-600">
-                      Giá trị đơn hàng tối thiểu:
-                    </span>{" "}
-                    {voucher.voucher.VoucherMinValue}đ
-                  </p>
-                  <p>
-                    <span className="font-bold text-pink-600">Mô tả:</span>{" "}
-                    {voucher.voucher.VoucherDescription}
-                  </p>
-                </div>
-              </div>
-            </div>
+    </div>
+  </div>
   );
 };
 
