@@ -131,7 +131,7 @@ const  GetListVoucherPartner = () => {
       </table>
       <div className="grid grid-cols-12">
       <button className="col-span-8 col-start-4   bg-green-400 border-4 border-green-400 px-4 py-2 my-4 w-2/3 h-fit text-white hover:bg-white hover:text-green-400 font-bold rounded-full">
-                <a className="no-underline" href="/CreateVoucher">
+                <a className="no-underline" href={`/CreateVoucherPartner${query}`}>
                   Thêm Voucher
                 </a>
               </button>

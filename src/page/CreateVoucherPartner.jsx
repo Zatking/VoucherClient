@@ -72,7 +72,7 @@ q          });
       return (
         <form className="bg-gradient-to-b from-green-400 p-6">
           <h1 className="text-4xl font-bold mb-4 pt-6 text-center text-white border-t-8 border-white rounded-3xl">
-            Tạo Voucher cho hệ thống 
+            Tạo Voucher
           </h1>
           <div className="grid grid-cols-12 rounded-xl bg-white place-items-end items-center gap-4 p-12 m-12 drop-shadow-xl">
             <p className="col-span-2 font-bold text-left text-green-400 text-lg place-self-start">
