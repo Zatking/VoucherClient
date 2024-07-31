@@ -18,7 +18,7 @@ const VoucherDetail = () => {
 
   const fetchVoucherByID = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/api/vouchers/getVoucherById/${id}`, {
+      const response = await fetch(`https://voucher-server-alpha.vercel.app/api/vouchers/getVoucherById/${id}`, {
         method: "POST",
       });
       if (!response.ok) {

@@ -16,7 +16,7 @@ const  GetListVoucherPartner = () => {
   const fetchVoucher = async () => {
     try {
       const res = await fetch(
-        "http://localhost:3001/api/vouchers/getVoucher"
+        "https://voucher-server-alpha.vercel.app/api/vouchers/getVoucher"
         ,)
       
       if (!res.ok) {

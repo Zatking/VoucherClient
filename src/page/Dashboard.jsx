@@ -9,7 +9,7 @@ const Dashboard = () => {
 
   const fetchVouchers = async () => {
     try {
-      const res = await fetch('http://localhost:3001/api/vouchers/getVoucher');
+      const res = await fetch('http://lhttps://voucher-server-alpha.vercel.app/api/getVoucher');
       if (!res.ok) {
         throw new Error('Network response was not ok');
       }

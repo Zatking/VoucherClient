@@ -26,7 +26,7 @@ const UpdateVoucher = () => {
 
   const fetchVoucherByID = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/api/vouchers/getVoucherById/${id}`,
+      const response = await fetch(`https://voucher-server-alpha.vercel.app/api/vouchers/getVoucherById/${id}`,
         {
           method: "POST",
         }
@@ -70,7 +70,7 @@ const UpdateVoucher = () => {
  const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const response = await fetch(`http://localhost:3001/api/vouchers/update/${id}`, {
+    const response = await fetch(`https://voucher-server-alpha.vercel.app/api/vouchers/update/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

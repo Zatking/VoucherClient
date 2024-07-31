@@ -59,7 +59,7 @@ const VoucherForm = () => {
       return;
       }
       try {
-        const response = await fetch("http://localhost:3001/api/vouchers/create", {
+        const response = await fetch("https://voucher-server-alpha.vercel.app/api/vouchers/create", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
